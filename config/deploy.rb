@@ -1,4 +1,5 @@
 #require "rvm/capistrano"
+#$:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
 
 #set :default_environment, {
 #  'PATH' => "/home/deploy/.rvm/rubies/ruby-1.9.3-p392/bin/:$PATH"
@@ -8,7 +9,17 @@
 #set :bundle_cmd, "/home/deploy/.rvm/gems/ruby-1.9.3-p392@global/bin/bundle"
 #set :bundle_dir, "/home/deploy/.rvm/gems/ruby-1.9.3-p392"
 
+#set :default_environment, {
+#    'PATH' => "/usr/local/bin:/bin:/usr/bin:/bin:/home/deploy/.rvm/rubies/ruby-1.9.3-p392/bin",
+#    'GEM_HOME' => '/home/deploy/.rvm/gems/ruby-1.9.3-p392',
+#    'GEM_PATH' => '/home/deploy/.rvm/gems/ruby-1.9.3-p392:/home/deploy/.rvm/gems/ruby-1.9.3-p392@global',
+#    :bundle_cmd => '/home/deploy/.rvm/gems/ruby-1.9.3-p392@global/bin/bundle'
+#}
+
+require "rvm/capistrano"
 require "bundler/capistrano"
+
+#require "bundler/capistrano"
 set :application, "alijosapp"
 set :repository,  "git@github.com:trestles/alijosapp.git"
 
@@ -45,4 +56,9 @@ end
 #  'PATH' => "/home/deploy/.rvm/rubies/ruby-1.9.3-p392/bin/:$PATH"
 #}
 
-
+#set :default_environment, {
+#    'PATH' => "/usr/local/bin:/bin:/usr/bin:/bin:/home/deploy/.rvm/rubies/ruby-1.9.3-p392/bin",
+#    'GEM_HOME' => '/home/deploy/.rvm/gems/ruby-1.9.3-p392',
+#    'GEM_PATH' => '/home/deploy/.rvm/gems/ruby-1.9.3-p392:/home/deploy/.rvm/gems/ruby-1.9.3-p392@global',
+#    :bundle_cmd => '/home/deploy/.rvm/gems/ruby-1.9.3-p392@global/bin/bundle'  
+#}
