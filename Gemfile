@@ -6,6 +6,7 @@ gem 'rails', '3.2.12'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 
+gem "rvm-capistrano"
 
 group :production, :staging do
   gem "pg"
@@ -16,7 +17,8 @@ group :development, :test do
 end
 
 group :development do
-  gem "capistrano","~> 2.11.2"
+  #gem "capistrano","~> 2.11.2"
+  gem "capistrano", "~> 2.14.2"
 end
 
 # Gems used only for assets and not required

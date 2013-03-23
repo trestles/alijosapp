@@ -1,4 +1,13 @@
 #require "rvm/capistrano"
+
+#set :default_environment, {
+#  'PATH' => "/home/deploy/.rvm/rubies/ruby-1.9.3-p392/bin/:$PATH"
+#}
+
+
+#set :bundle_cmd, "/home/deploy/.rvm/gems/ruby-1.9.3-p392@global/bin/bundle"
+#set :bundle_dir, "/home/deploy/.rvm/gems/ruby-1.9.3-p392"
+
 require "bundler/capistrano"
 set :application, "alijosapp"
 set :repository,  "git@github.com:trestles/alijosapp.git"
@@ -31,3 +40,9 @@ namespace :deploy do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
 end
+
+#set :default_environment, {
+#  'PATH' => "/home/deploy/.rvm/rubies/ruby-1.9.3-p392/bin/:$PATH"
+#}
+
+
