@@ -9,7 +9,7 @@ gem 'rails', '3.2.12'
 gem "rvm-capistrano"
 
 group :production, :staging do
-  gem "mysql2"
+  #gem "mysql2"
 end
 
 group :development, :test do
