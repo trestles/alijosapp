@@ -1,25 +1,6 @@
-#require "rvm/capistrano"
-#$:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
-
-#set :default_environment, {
-#  'PATH' => "/home/deploy/.rvm/rubies/ruby-1.9.3-p392/bin/:$PATH"
-#}
-
-
-#set :bundle_cmd, "/home/deploy/.rvm/gems/ruby-1.9.3-p392@global/bin/bundle"
-#set :bundle_dir, "/home/deploy/.rvm/gems/ruby-1.9.3-p392"
-
-#set :default_environment, {
-#    'PATH' => "/usr/local/bin:/bin:/usr/bin:/bin:/home/deploy/.rvm/rubies/ruby-1.9.3-p392/bin",
-#    'GEM_HOME' => '/home/deploy/.rvm/gems/ruby-1.9.3-p392',
-#    'GEM_PATH' => '/home/deploy/.rvm/gems/ruby-1.9.3-p392:/home/deploy/.rvm/gems/ruby-1.9.3-p392@global',
-#    :bundle_cmd => '/home/deploy/.rvm/gems/ruby-1.9.3-p392@global/bin/bundle'
-#}
-
 require "rvm/capistrano"
 require "bundler/capistrano"
 
-#require "bundler/capistrano"
 set :application, "alijosapp"
 set :repository,  "git@github.com:trestles/alijosapp.git"
 
@@ -32,7 +13,7 @@ role :db,  "192.81.212.111", :primary => true # This is where Rails migrations w
 #role :db,  "your slave db-server here"
 
 set :user, "deploy"
-set :deploy_to, "/var-www/alijos"
+set :deploy_to, "/var-www/alijosapp"
 set :use_sudo, false
 set :deploy_via, :copy
 set :copy_strategy, :export
@@ -51,14 +32,3 @@ namespace :deploy do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
 end
-
-#set :default_environment, {
-#  'PATH' => "/home/deploy/.rvm/rubies/ruby-1.9.3-p392/bin/:$PATH"
-#}
-
-#set :default_environment, {
-#    'PATH' => "/usr/local/bin:/bin:/usr/bin:/bin:/home/deploy/.rvm/rubies/ruby-1.9.3-p392/bin",
-#    'GEM_HOME' => '/home/deploy/.rvm/gems/ruby-1.9.3-p392',
-#    'GEM_PATH' => '/home/deploy/.rvm/gems/ruby-1.9.3-p392:/home/deploy/.rvm/gems/ruby-1.9.3-p392@global',
-#    :bundle_cmd => '/home/deploy/.rvm/gems/ruby-1.9.3-p392@global/bin/bundle'  
-#}
